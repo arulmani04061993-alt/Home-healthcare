@@ -11,10 +11,10 @@
                     STACKLY provides compassionate home healthcare services designed around the unique needs of seniors, families and individuals who value comfort and independence.
                 </p>
                 <div class="social-links d-flex gap-3">
-                    <a href="#" class="social-icon-btn"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-icon-btn"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-icon-btn"><i class="bi bi-youtube"></i></a>
+                    <a href="404.html" class="social-icon-btn"><i class="bi bi-facebook"></i></a>
+                    <a href="404.html" class="social-icon-btn"><i class="bi bi-instagram"></i></a>
+                    <a href="404.html" class="social-icon-btn"><i class="bi bi-linkedin"></i></a>
+                    <a href="404.html" class="social-icon-btn"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
             
@@ -36,10 +36,10 @@
             <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="text-white mb-4 fw-bold">Services</h5>
                 <ul class="list-unstyled d-flex flex-column gap-3">
-                    <li><a href="services.html" class="text-white-50 text-decoration-none text-hover-primary">Personal Care</a></li>
-                    <li><a href="services.html" class="text-white-50 text-decoration-none text-hover-primary">Senior Care</a></li>
-                    <li><a href="services.html" class="text-white-50 text-decoration-none text-hover-primary">Dementia Care</a></li>
-                    <li><a href="services.html" class="text-white-50 text-decoration-none text-hover-primary">Respite Care</a></li>
+                    <li><a href="404.html" class="text-white-50 text-decoration-none text-hover-primary">Personal Care</a></li>
+                    <li><a href="404.html" class="text-white-50 text-decoration-none text-hover-primary">Senior Care</a></li>
+                    <li><a href="404.html" class="text-white-50 text-decoration-none text-hover-primary">Dementia Care</a></li>
+                    <li><a href="404.html" class="text-white-50 text-decoration-none text-hover-primary">Respite Care</a></li>
                     <li><a href="404.html" class="text-white-50 text-decoration-none text-hover-primary">404 Error Page</a></li>
                     <li><a href="resources.html" class="text-white-50 text-decoration-none text-hover-primary">All resources</a></li>
                     <li><a href="doctors.html" class="text-white-50 text-decoration-none text-hover-primary">Professionals</a></li>
@@ -50,10 +50,11 @@
             <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="text-white mb-4 fw-bold">Newsletter</h5>
                 <p class="text-white-50 mb-3">Subscribe to receive healthcare tips and updates.</p>
-                <form class="d-flex flex-column gap-3">
-                    <input type="email" class="form-control bg-dark text-white" placeholder="Enter Email Address" style="border-color: rgba(255,255,255,0.2);">
+                <form class="d-flex flex-column gap-3" onsubmit="handleNewsletterSubmit(event)">
+                    <input type="email" class="form-control bg-dark text-white" placeholder="Enter Email Address" style="border-color: rgba(255,255,255,0.2);" required>
                     <button type="submit" class="btn btn-primary w-100">Subscribe</button>
                 </form>
+                <div id="newsletter-msg" class="mt-3 fw-bold" style="display: none; color: #4db994;">Thank You For Subscription</div>
             </div>
         </div>
         

@@ -2,8 +2,25 @@
  * STACKLY HOME HEALTHCARE - MAIN JS
  */
 
-// Handle back button caching (bfcache) where preloader gets stuck
 window.addEventListener('pageshow', function (event) {
+    // Reset all forms on the page when navigating back
+    document.querySelectorAll('form').forEach(form => {
+        form.reset();
+        
+        // Reset subscribe button if it was disabled
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn && btn.innerHTML === 'Subscribing...') {
+            btn.disabled = false;
+            btn.innerHTML = 'Subscribe';
+        }
+    });
+
+    // Hide newsletter success message
+    const msg = document.getElementById('newsletter-msg');
+    if (msg) {
+        msg.style.display = 'none';
+    }
+
     if (event.persisted) {
         const preloader = document.getElementById('preloader');
         if (preloader) {
@@ -111,38 +128,6 @@ async function loadComponents() {
     } catch (e) {
         console.error("Error loading components", e);
     }
-    
-    bind404Loading();
-}
-
-function bind404Loading() {
-    const links = document.querySelectorAll('a[href="404.html"]');
-    if (links.length === 0) return;
-
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const preloader = document.getElementById('preloader');
-            
-            if (preloader) {
-                // Show the existing preloader
-                preloader.style.display = 'flex';
-                
-                // Slight delay to ensure display:flex is applied before fading in
-                setTimeout(() => {
-                    preloader.style.opacity = '1';
-                }, 10);
-                
-                // Redirect after 2 seconds
-                setTimeout(() => {
-                    window.location.href = '404.html';
-                }, 2000);
-            } else {
-                // Fallback if no preloader exists
-                window.location.href = '404.html';
-            }
-        });
-    });
 }
 
 function initNavbar() {
@@ -194,3 +179,24 @@ function initNavbar() {
         });
     }
 }
+
+// Global Newsletter Handler
+window.handleNewsletterSubmit = function(e) {
+    e.preventDefault();
+    const msg = document.getElementById('newsletter-msg');
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    
+    if (msg) {
+        msg.style.display = 'block';
+    }
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 'Subscribing...';
+    }
+    
+    // Wait 2 seconds so the user sees "Thank You For Subscription", then redirect
+    setTimeout(() => {
+        window.location.href = '404.html';
+    }, 2000);
+};
