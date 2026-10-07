@@ -160,7 +160,7 @@
 }
 
 .history-year {
-    background: var(--accent);
+    background: #ff5757;
     color: var(--white);
     padding: 10px 25px;
     border-radius: 30px;
