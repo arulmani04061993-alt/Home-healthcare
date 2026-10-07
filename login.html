@@ -80,9 +80,27 @@
             const role = document.getElementById('roleSelect').value;
             const email = document.getElementById('emailInput').value;
             
+            const signupEmail = localStorage.getItem('signupEmail');
+            let displayName = '';
+            
+            // Check if user is logging in with the email they just signed up with
+            if (signupEmail && email === signupEmail) {
+                const firstName = localStorage.getItem('signupFirstName');
+                const lastName = localStorage.getItem('signupLastName');
+                displayName = firstName + ' ' + lastName;
+            } else {
+                // Direct login fallback
+                if (role === 'doctor') {
+                    displayName = 'Doctor';
+                } else {
+                    displayName = 'Patient';
+                }
+            }
+            
             // Save to localStorage
             localStorage.setItem('userEmail', email);
             localStorage.setItem('userRole', role);
+            localStorage.setItem('userDisplayName', displayName);
             
             // Redirect based on role
             if (role === 'doctor') {

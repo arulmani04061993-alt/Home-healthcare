@@ -28,21 +28,21 @@
                 <h3 class="auth-title">Create an Account</h3>
                 <p class="auth-subtitle">Join us to experience compassionate care</p>
                 
-                <form id="signupForm" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                <form id="signupForm">
                     <div class="row g-3 mb-3">
                         <div class="col-md-6">
                             <label class="form-label text-muted fw-bold">First Name</label>
-                            <input type="text" class="form-control" placeholder="John" required>
+                            <input type="text" id="firstNameInput" class="form-control" placeholder="John" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-muted fw-bold">Last Name</label>
-                            <input type="text" class="form-control" placeholder="Doe" required>
+                            <input type="text" id="lastNameInput" class="form-control" placeholder="Doe" required>
                         </div>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label text-muted fw-bold">Email Address</label>
-                        <input type="email" class="form-control" placeholder="johndoe@example.com" required>
+                        <input type="email" id="signupEmailInput" class="form-control" placeholder="johndoe@example.com" required>
                     </div>
 
                     <div class="mb-3">
@@ -89,5 +89,21 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstNameInput').value;
+            const lastName = document.getElementById('lastNameInput').value;
+            const email = document.getElementById('signupEmailInput').value;
+            
+            // Save to localStorage so login page or dashboard can use it
+            localStorage.setItem('signupFirstName', firstName);
+            localStorage.setItem('signupLastName', lastName);
+            localStorage.setItem('signupEmail', email);
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>

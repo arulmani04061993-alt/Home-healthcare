@@ -154,7 +154,7 @@
         <!-- Dashboard Content -->
         <!-- Dashboard Content -->
         <div class="p-4 content-section" id="tab-dashboard">
-            <h2 class="mb-4">Welcome back, <span class="text-primary">DOCTOR</span>!</h2>
+            <h2 class="mb-4">Welcome back, <span class="text-primary" id="userDisplayNameDisplay">Doctor</span>!</h2>
             <div class="row g-4 mb-4">
                 <div class="col-md-3">
                     <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #42BFA0 !important;">
@@ -637,6 +637,10 @@
 
         // On load, get the email from localStorage and update the UI elements
         document.addEventListener('DOMContentLoaded', () => {
+            const displayName = localStorage.getItem('userDisplayName') || 'Doctor';
+            const displayEl = document.getElementById('userDisplayNameDisplay');
+            if(displayEl) displayEl.textContent = displayName;
+
             const storedEmail = localStorage.getItem('userEmail') || 'user@example.com';
             
             // Update all elements that should show the email
