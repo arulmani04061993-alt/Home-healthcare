@@ -41,6 +41,13 @@
             opacity: 0.8;
             word-break: break-all;
         }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
         
         /* Responsive Overrides */
         @media (max-width: 991.98px) {
@@ -124,7 +131,7 @@
         </ul>
         
         <div class="mt-auto p-3">
-            <a href="index.html" class="btn btn-outline-light w-100">
+            <a href="login.html" class="btn btn-outline-light w-100">
                 <i class="bi bi-box-arrow-left me-2"></i>Logout
             </a>
         </div>
@@ -224,6 +231,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Extra Content: Wellness & News -->
+            <div class="row g-4 mt-1">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4" style="background: linear-gradient(135deg, #f5faf8, #e3fdfd);">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-heart-pulse me-2 text-primary"></i>Wellness Tips & News</h5>
+                            <button class="btn btn-sm btn-outline-primary">Read More</button>
+                        </div>
+                        <p class="text-muted mb-0"><strong>Tip of the day:</strong> Staying hydrated is especially important as the weather changes. Remember to drink at least 8 glasses of water a day. If you have questions about your personal diet, reach out to your care team through the Messages tab.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Appointments Content -->
@@ -286,6 +307,38 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Extra Content: Pre-visit Prep & Virtual Care -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(135deg, #f0f7fa, #ffffff);">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-card-checklist text-primary me-2"></i>How to Prepare for Your Next Visit</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                <span><strong>Review Medications:</strong> Have your current medication bottles ready to show your provider.</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                <span><strong>Write Down Questions:</strong> Note any new symptoms or questions in advance so you don't forget.</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
+                                <span><strong>Check Connection:</strong> If it's a telehealth visit, connect 5 minutes early to test your setup.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-headset fs-1 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Need to Reschedule?</h6>
+                        <p class="small opacity-75 mb-4">If you cannot make your scheduled time, please let us know at least 24 hours in advance.</p>
+                        <button class="btn btn-light btn-sm fw-bold w-100 mb-2">Contact Scheduling</button>
+                        <button class="btn btn-outline-light btn-sm w-100">Test Device Camera/Mic</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Care Plan Content -->
@@ -340,6 +393,40 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Extra Content: Health Goals & Education -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(135deg, #f0f7fa, #ffffff);">
+                        <h5 class="fw-bold mb-4"><i class="bi bi-activity text-primary me-2"></i>Active Health Goals</h5>
+                        <div class="row text-center mb-3">
+                            <div class="col-4 border-end">
+                                <i class="bi bi-droplet-half text-info fs-3 mb-2 d-block"></i>
+                                <h6 class="fw-bold mb-0">Hydration</h6>
+                                <p class="small text-muted">64 oz / day</p>
+                            </div>
+                            <div class="col-4 border-end">
+                                <i class="bi bi-heart-pulse text-danger fs-3 mb-2 d-block"></i>
+                                <h6 class="fw-bold mb-0">BP Target</h6>
+                                <p class="small text-muted">< 120/80</p>
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-person-walking text-success fs-3 mb-2 d-block"></i>
+                                <h6 class="fw-bold mb-0">Mobility</h6>
+                                <p class="small text-muted">20 min / day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-journal-medical fs-1 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Educational Resources</h6>
+                        <p class="small opacity-75 mb-4">Access a library of videos and articles curated specifically for your recovery journey.</p>
+                        <button class="btn btn-light btn-sm fw-bold w-100">Browse Library</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Medications Content -->
@@ -389,6 +476,33 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Extra Content: Pharmacy & Delivery -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(135deg, #f0f7fa, #ffffff);">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-shop text-primary me-2"></i>Preferred Pharmacy</h5>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-light rounded p-3 me-3">
+                                <i class="bi bi-building text-primary fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">CVS Pharmacy #1234</h6>
+                                <p class="small text-muted mb-0">123 Main St, Springfield, IL</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm mt-2">Change Pharmacy</button>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-truck fs-1 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Home Delivery Available</h6>
+                        <p class="small opacity-75 mb-4">Skip the line and have your medications delivered directly to your doorstep in 1-2 days.</p>
+                        <button class="btn btn-light btn-sm fw-bold w-100">Set Up Delivery</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Records Content -->
@@ -427,6 +541,28 @@
                         </div>
                         <button class="btn btn-sm btn-light"><i class="bi bi-download"></i></button>
                     </a>
+                </div>
+            </div>
+
+            <!-- Extra Content: Share & Upload Records -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(135deg, #f0f7fa, #ffffff);">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-share text-primary me-2"></i>Share Your Records</h5>
+                        <p class="text-muted small mb-4">Easily generate a secure link to share your comprehensive medical history, including recent lab results and care plans, with specialists or family members.</p>
+                        <div class="d-flex gap-2 mt-auto">
+                            <button class="btn btn-outline-primary btn-sm fw-bold px-3">Generate Link</button>
+                            <button class="btn btn-outline-secondary btn-sm px-3"><i class="bi bi-envelope me-1"></i> Email Report</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-cloud-arrow-up fs-1 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Upload External Records</h6>
+                        <p class="small opacity-75 mb-4">Have lab results or imaging from an outside specialist? Upload them securely.</p>
+                        <button class="btn btn-light btn-sm fw-bold w-100"><i class="bi bi-file-earmark-plus me-1"></i> Select Files</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -497,6 +633,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Extra Content: Financial Assistance & Auto-Pay -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(135deg, #f0f7fa, #ffffff);">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-wallet2 text-primary me-2"></i>Auto-Pay Settings</h5>
+                        <p class="text-muted small mb-4">Never miss a payment. Enroll in Auto-Pay to have your future invoices automatically deducted from your primary payment method on their due date.</p>
+                        <div class="d-flex align-items-center mt-auto">
+                            <div class="form-check form-switch fs-5 mb-0">
+                                <input class="form-check-input" type="checkbox" id="autopayToggle">
+                                <label class="form-check-label fs-6 ms-2" for="autopayToggle">Enable Auto-Pay</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-piggy-bank fs-1 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Financial Assistance</h6>
+                        <p class="small opacity-75 mb-4">Learn about our flexible payment plans and see if you qualify for financial aid.</p>
+                        <button class="btn btn-light btn-sm fw-bold w-100">Explore Options</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Settings Content -->
@@ -547,6 +707,28 @@
                         <hr>
                         <h5 class="fw-bold mb-3 mt-4">Security</h5>
                         <button type="button" class="btn btn-outline-danger w-100">Change Password</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Content: Privacy & Security Settings -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(135deg, #f0f7fa, #ffffff);">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-shield-check text-primary me-2"></i>Privacy & Data Security</h5>
+                        <p class="text-muted small mb-4">Your medical data is protected with enterprise-grade encryption. Review our HIPAA compliance policies and see how your information is safeguarded.</p>
+                        <div class="d-flex align-items-center mt-auto gap-3">
+                            <button class="btn btn-outline-primary btn-sm fw-bold px-3">View Privacy Policy</button>
+                            <a href="#" class="small text-decoration-none text-muted">Request Data Report</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-phone fs-1 mb-2"></i>
+                        <h6 class="fw-bold mb-2">Two-Factor Authentication</h6>
+                        <p class="small opacity-75 mb-4">Add an extra layer of security to your patient account by enabling 2FA with your mobile device.</p>
+                        <button class="btn btn-light btn-sm fw-bold w-100">Setup 2FA Now</button>
                     </div>
                 </div>
             </div>

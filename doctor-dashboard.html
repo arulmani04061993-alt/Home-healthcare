@@ -41,6 +41,13 @@
             opacity: 0.8;
             word-break: break-all;
         }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
         
         /* Responsive Overrides */
         @media (max-width: 991.98px) {
@@ -119,7 +126,7 @@
         </ul>
         
         <div class="mt-auto p-3">
-            <a href="index.html" class="btn btn-outline-light w-100">
+            <a href="login.html" class="btn btn-outline-light w-100">
                 <i class="bi bi-box-arrow-left me-2"></i>Logout
             </a>
         </div>
@@ -218,6 +225,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Extra Content: Announcements & Resources -->
+            <div class="row g-4 mt-1">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4" style="background: linear-gradient(135deg, #f5faf8, #e3fdfd);">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-megaphone me-2 text-primary"></i>Platform Announcements</h5>
+                            <button class="btn btn-sm btn-outline-primary">View All</button>
+                        </div>
+                        <p class="text-muted mb-0"><strong>New Feature Alert:</strong> We have recently integrated a new AI-powered symptom checker to assist with preliminary diagnoses. Please review the updated guidelines in the Resources tab before using this feature with patients.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Schedule Content -->
@@ -280,6 +301,18 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Extra Content: Schedule Resources -->
+            <div class="row g-4 mt-1">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4 text-center" style="background-color: #f5faf8;">
+                        <i class="bi bi-calendar2-week fs-2 text-primary mb-2"></i>
+                        <h6 class="fw-bold">Need help managing your schedule?</h6>
+                        <p class="text-muted small mb-3">Sync your STACKLY calendar with Google Calendar or Outlook to avoid scheduling conflicts.</p>
+                        <button class="btn btn-sm btn-outline-primary mx-auto">Sync Calendar</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Patients Content -->
@@ -340,6 +373,37 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Extra Content: Patient Insights & Demographics -->
+            <div class="row g-4 mt-1">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background: linear-gradient(to right, #f5faf8, #ffffff);">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-graph-up text-primary me-2"></i>Patient Health Trends</h5>
+                        <div class="row text-center mt-3">
+                            <div class="col-4 border-end">
+                                <h3 class="fw-bold text-success mb-1">92%</h3>
+                                <p class="small text-muted mb-0">Adherence Rate</p>
+                            </div>
+                            <div class="col-4 border-end">
+                                <h3 class="fw-bold text-warning mb-1">15%</h3>
+                                <p class="small text-muted mb-0">High-Risk Patients</p>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="fw-bold text-primary mb-1">142</h3>
+                                <p class="small text-muted mb-0">Total Active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center bg-primary text-white">
+                        <i class="bi bi-file-earmark-bar-graph fs-1 mb-2"></i>
+                        <h6 class="fw-bold">Generate Monthly Report</h6>
+                        <p class="small opacity-75 mb-3">Export detailed analytics on patient conditions and visit frequency.</p>
+                        <button class="btn btn-light btn-sm fw-bold">Download PDF</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Prescriptions Content -->
@@ -386,6 +450,18 @@
                             </div>
                             <button type="button" class="btn btn-light w-100 fw-bold">Send to Pharmacy</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Content: E-Prescriptions Help -->
+            <div class="row g-4 mt-1">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4 text-center" style="background-color: #f5faf8;">
+                        <i class="bi bi-info-circle fs-2 text-primary mb-2"></i>
+                        <h6 class="fw-bold">E-Prescription Guidelines Updated</h6>
+                        <p class="text-muted small mb-3">Please note the new regulatory requirements for prescribing Schedule II medications electronically.</p>
+                        <button class="btn btn-sm btn-outline-primary mx-auto">Read Guidelines</button>
                     </div>
                 </div>
             </div>
@@ -441,6 +517,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Extra Content: Message Settings -->
+            <div class="row g-4 mt-1">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4 text-center" style="background-color: #f5faf8;">
+                        <i class="bi bi-shield-lock fs-2 text-primary mb-2"></i>
+                        <h6 class="fw-bold">Secure Messaging</h6>
+                        <p class="text-muted small mb-3">All messages sent through this portal are end-to-end encrypted and HIPAA compliant.</p>
+                        <button class="btn btn-sm btn-outline-primary mx-auto">Review Privacy Policy</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Settings Content -->
@@ -488,6 +576,18 @@
                             <input class="form-check-input" type="checkbox" id="notif3">
                             <label class="form-check-label" for="notif3">Daily schedule digest</label>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Content: Account Security -->
+            <div class="row g-4 mt-1">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm p-4 text-center" style="background-color: #f5faf8;">
+                        <i class="bi bi-phone fs-2 text-primary mb-2"></i>
+                        <h6 class="fw-bold">Two-Factor Authentication</h6>
+                        <p class="text-muted small mb-3">Enhance your account security by enabling two-factor authentication (2FA) via SMS or an authenticator app.</p>
+                        <button class="btn btn-sm btn-primary mx-auto">Enable 2FA Now</button>
                     </div>
                 </div>
             </div>
