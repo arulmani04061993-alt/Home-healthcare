@@ -803,6 +803,35 @@
                 }, 500);
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const targetTexts = [
+                "book appointment", "request refill", "message care team", "read more",
+                "book new visit", "reschedule", "view notes", "contact scheduling",
+                "test device camera", "test device mic", "message team", "browse library",
+                "renew prescription", "set up delivery", "change pharmacy", "generate link",
+                "email report", "select files", "pay", "explore options", "save changes",
+                "view privacy policy", "request data report", "change password", "setup 2fa now"
+            ];
+
+            document.body.addEventListener('click', function(e) {
+                let el = e.target.closest('button, a');
+                if (!el) return;
+                
+                let text = el.textContent.toLowerCase().trim();
+                let html = el.innerHTML.toLowerCase();
+                
+                let hasDownloadIcon = html.includes('bi-download');
+
+                let shouldRedirect = targetTexts.some(t => text.includes(t)) || 
+                                     (hasDownloadIcon && !text);
+                                     
+                if (shouldRedirect) {
+                    e.preventDefault();
+                    window.location.href = '404.html';
+                }
+            });
+        });
     </script>
 </body>
 </html>

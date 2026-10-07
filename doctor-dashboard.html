@@ -663,6 +663,38 @@
                 }, 500);
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const targetTexts = [
+                "new prescription", "start virtual visit", "send message", "view all", 
+                "add block", "add blck", "join call", "view chart", "directions", 
+                "sync calendar", "syn calender", "add patient", "download pdf", 
+                "read guidelines", "send to pharmacy", "review privacy policy", 
+                "save changes", "enable 2fa now"
+            ];
+
+            document.body.addEventListener('click', function(e) {
+                let el = e.target.closest('button, a');
+                if (!el) return;
+                
+                let text = el.textContent.toLowerCase().trim();
+                let html = el.innerHTML.toLowerCase();
+                
+                let hasSendIcon = html.includes('bi-send') || html.includes('bi-telegram') || html.includes('fa-paper-plane');
+                let hasViewIcon = html.includes('bi-eye');
+                let hasEditIcon = html.includes('bi-pencil') || html.includes('bi-pencil-square');
+
+                let shouldRedirect = targetTexts.some(t => text.includes(t)) || 
+                                     hasSendIcon || 
+                                     hasViewIcon || 
+                                     hasEditIcon;
+                                     
+                if (shouldRedirect) {
+                    e.preventDefault();
+                    window.location.href = '404.html';
+                }
+            });
+        });
     </script>
 </body>
 </html>
