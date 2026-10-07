@@ -2,6 +2,17 @@
  * STACKLY HOME HEALTHCARE - MAIN JS
  */
 
+// Handle back button caching (bfcache) where preloader gets stuck
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.opacity = '0';
+            preloader.style.display = 'none';
+        }
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Remove Preloader
     const preloader = document.getElementById('preloader');
@@ -100,6 +111,38 @@ async function loadComponents() {
     } catch (e) {
         console.error("Error loading components", e);
     }
+    
+    bind404Loading();
+}
+
+function bind404Loading() {
+    const links = document.querySelectorAll('a[href="404.html"]');
+    if (links.length === 0) return;
+
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const preloader = document.getElementById('preloader');
+            
+            if (preloader) {
+                // Show the existing preloader
+                preloader.style.display = 'flex';
+                
+                // Slight delay to ensure display:flex is applied before fading in
+                setTimeout(() => {
+                    preloader.style.opacity = '1';
+                }, 10);
+                
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '404.html';
+                }, 2000);
+            } else {
+                // Fallback if no preloader exists
+                window.location.href = '404.html';
+            }
+        });
+    });
 }
 
 function initNavbar() {

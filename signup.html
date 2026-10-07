@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="css/auth.css">
 </head>
 <body class="auth-page">
+    <!-- Preloader -->
+    <div id="preloader"><div class="preloader-content d-flex flex-column align-items-center"><img src="assets/images/logo.webp" alt="STACKLY" style="width: 200px; height: auto; margin-bottom: -15px; z-index: 2; position: relative;"><svg class="pulse-svg" viewBox="0 0 400 150"><path class="pulse-line" d="M 0 75 L 150 75 C 155 75 155 40 160 40 C 165 40 165 75 170 75 L 172 75 L 175 100 L 178 50 L 183 140 C 185 140 186 60 190 60 C 193 60 195 80 198 80 C 202 80 204 40 208 40 C 212 40 212 75 215 75 L 400 75"></path></svg></div></div>
+
 
     <div class="container py-5">
         <div class="auth-container">
@@ -103,6 +106,18 @@
             
             // Redirect to login page
             window.location.href = 'login.html';
+        });
+    </script>
+
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 300);
+                }, 500);
+            }
         });
     </script>
 </body>
