@@ -1,0 +1,75 @@
+/* STACKLY - AUTHENTICATION CSS */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--light);
+}
+
+.auth-container {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    min-height: 700px;
+}
+
+.auth-image-side {
+    flex: 1;
+    background: linear-gradient(rgba(46, 159, 138, 0.4), rgba(16, 42, 67, 0.8)), url('../assets/images/global/img_1576765608535-5f04d1e3f289.webp') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    color: var(--white);
+}
+
+.auth-form-side {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--heading);
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.auth-logo i {
+    color: var(--primary);
+    font-size: 32px;
+}
+
+.auth-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+@media (max-width: 991px) {
+    .auth-container {
+        flex-direction: column;
+    }
+    .auth-image-side {
+        display: none;
+    }
+    .auth-form-side {
+        padding: 40px 20px;
+        max-width: 100%;
+    }
+}

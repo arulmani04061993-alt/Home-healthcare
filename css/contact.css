@@ -1,0 +1,59 @@
+/* STACKLY - CONTACT CSS */
+
+.contact-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: all var(--transition-normal);
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(66, 191, 160, 0.1);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+    transition: all var(--transition-normal);
+}
+
+.contact-card:hover .contact-icon {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.contact-form-container {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+}
+
+.map-wrapper {
+    border-radius: 24px;
+    overflow: hidden;
+    height: 450px;
+}
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 30px 20px;
+    }
+    .map-wrapper {
+        height: 300px;
+    }
+}

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard | STACKLY Home Healthcare</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #03204c;
+            color: white;
+            padding-top: 1rem;
+            z-index: 1050;
+            transition: transform 0.3s ease;
+        }
+        #main-content {
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
+            width: calc(100% - 250px);
+        }
+        .navbar-custom {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        .sidebar-email {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            word-break: break-all;
+        }
+        
+        /* Responsive Overrides */
+        @media (max-width: 991.98px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+            #sidebar.show-sidebar {
+                transform: translateX(0);
+            }
+            #main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0,0,0,0.5);
+                z-index: 1040;
+                display: none;
+            }
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="d-flex flex-column">
+        <a href="index.html" class="d-flex align-items-center mb-4 px-4 text-white text-decoration-none">
+            <img src="assets/images/logo.webp" alt="STACKLY Logo" height="35">
+        </a>
+        
+        <div class="px-4 mb-4">
+            <p class="mb-0 fw-bold">DOCTOR PORTAL</p>
+            <p class="sidebar-email user-email-display">Loading...</p>
+        </div>
+
+        <ul class="nav nav-pills flex-column mb-auto px-2" id="sidebar-nav">
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white active" onclick="showTab('dashboard', this)">
+                    <i class="bi bi-grid me-2"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('schedule', this)">
+                    <i class="bi bi-calendar-check me-2"></i> Schedule
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('patients', this)">
+                    <i class="bi bi-people me-2"></i> My Patients
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('prescriptions', this)">
+                    <i class="bi bi-file-medical me-2"></i> Prescriptions
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('messages', this)">
+                    <i class="bi bi-chat-dots me-2"></i> Messages
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('settings', this)">
+                    <i class="bi bi-gear me-2"></i> Settings
+                </a>
+            </li>
+        </ul>
+        
+        <div class="mt-auto p-3">
+            <a href="index.html" class="btn btn-outline-light w-100">
+                <i class="bi bi-box-arrow-left me-2"></i>Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+            <div class="container-fluid">
+                <button class="btn btn-light d-lg-none me-3 border" id="sidebarToggle">
+                    <i class="bi bi-list fs-5"></i>
+                </button>
+                <span class="navbar-brand mb-0 h1">Overview</span>
+                <div class="d-flex align-items-center ms-auto">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-4 me-2 text-primary"></i>
+                            <strong class="user-email-display">Loading...</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="dropdownUser">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <!-- Dashboard Content -->
+        <div class="p-4 content-section" id="tab-dashboard">
+            <h2 class="mb-4">Welcome back, <span class="text-primary">DOCTOR</span>!</h2>
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #42BFA0 !important;">
+                        <i class="bi bi-people fs-1 text-primary mb-2"></i>
+                        <h5 class="text-muted">Total Patients</h5>
+                        <h3 class="fw-bold">142</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #ff5757 !important;">
+                        <i class="bi bi-calendar-event fs-1 text-danger mb-2"></i>
+                        <h5 class="text-muted">Appointments</h5>
+                        <h3 class="fw-bold">12</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #ffc107 !important;">
+                        <i class="bi bi-chat-dots fs-1 text-warning mb-2"></i>
+                        <h5 class="text-muted">Unread Messages</h5>
+                        <h3 class="fw-bold">5</h3>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #0dcaf0 !important;">
+                        <i class="bi bi-clipboard-pulse fs-1 text-info mb-2"></i>
+                        <h5 class="text-muted">Reports Due</h5>
+                        <h3 class="fw-bold">2</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="mb-4 fw-bold">Recent Activity</h5>
+                        <div class="d-flex align-items-center mb-3 border-bottom pb-3">
+                            <div class="bg-light rounded-circle p-3 me-3 text-primary"><i class="bi bi-file-earmark-medical"></i></div>
+                            <div>
+                                <h6 class="mb-1">New Lab Result Available</h6>
+                                <p class="text-muted mb-0 small">Patient: Jane Smith - Blood Panel Complete.</p>
+                            </div>
+                            <span class="ms-auto text-muted small">10 mins ago</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 border-bottom pb-3">
+                            <div class="bg-light rounded-circle p-3 me-3 text-success"><i class="bi bi-check-circle"></i></div>
+                            <div>
+                                <h6 class="mb-1">Consultation Completed</h6>
+                                <p class="text-muted mb-0 small">Patient: John Doe - Video Checkup.</p>
+                            </div>
+                            <span class="ms-auto text-muted small">1 hr ago</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-light rounded-circle p-3 me-3 text-warning"><i class="bi bi-capsule"></i></div>
+                            <div>
+                                <h6 class="mb-1">Prescription Refill Requested</h6>
+                                <p class="text-muted mb-0 small">Patient: Michael Brown - Metformin 500mg.</p>
+                            </div>
+                            <span class="ms-auto text-muted small">2 hrs ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="mb-4 fw-bold">Quick Actions</h5>
+                        <button class="btn btn-primary w-100 mb-3 text-start"><i class="bi bi-plus-circle me-2"></i> New Prescription</button>
+                        <button class="btn btn-outline-primary w-100 mb-3 text-start"><i class="bi bi-camera-video me-2"></i> Start Virtual Visit</button>
+                        <button class="btn btn-outline-secondary w-100 mb-3 text-start"><i class="bi bi-envelope me-2"></i> Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Content -->
+        <div class="p-4 content-section d-none" id="tab-schedule">
+            <h2 class="mb-4">My Schedule</h2>
+            <div class="card border-0 shadow-sm p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Today's Appointments</h5>
+                    <button class="btn btn-sm btn-primary"><i class="bi bi-plus me-1"></i> Add Block</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Time</th>
+                                <th>Patient</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>10:00 AM</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" class="rounded-circle me-2" width="30">
+                                        <span>John Doe</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-info text-dark"><i class="bi bi-camera-video me-1"></i> Video</span></td>
+                                <td><span class="text-success"><i class="bi bi-circle-fill small me-1"></i> Confirmed</span></td>
+                                <td><button class="btn btn-sm btn-primary">Join Call</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>11:30 AM</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Sarah+Lee&background=random" class="rounded-circle me-2" width="30">
+                                        <span>Sarah Lee</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-secondary"><i class="bi bi-hospital me-1"></i> Clinic</span></td>
+                                <td><span class="text-warning"><i class="bi bi-circle-fill small me-1"></i> Waiting</span></td>
+                                <td><button class="btn btn-sm btn-outline-primary">View Chart</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>01:30 PM</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=random" class="rounded-circle me-2" width="30">
+                                        <span>Jane Smith</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-primary"><i class="bi bi-house me-1"></i> Home Visit</span></td>
+                                <td><span class="text-muted"><i class="bi bi-circle-fill small me-1"></i> Scheduled</span></td>
+                                <td><button class="btn btn-sm btn-outline-primary">Directions</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patients Content -->
+        <div class="p-4 content-section d-none" id="tab-patients">
+            <h2 class="mb-4">My Patients</h2>
+            <div class="card border-0 shadow-sm p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <input type="text" class="form-control w-25" placeholder="Search patients...">
+                    <button class="btn btn-primary"><i class="bi bi-person-plus me-1"></i> Add Patient</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Name</th>
+                                <th>Age/Gender</th>
+                                <th>Condition</th>
+                                <th>Last Visit</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>John Doe</strong></td>
+                                <td>68 / M</td>
+                                <td>Hypertension</td>
+                                <td>Oct 4, 2026</td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Jane Smith</strong></td>
+                                <td>74 / F</td>
+                                <td>Post-Op Recovery</td>
+                                <td>Sep 28, 2026</td>
+                                <td><span class="badge bg-warning text-dark">Monitor</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Michael Brown</strong></td>
+                                <td>81 / M</td>
+                                <td>Diabetes Type II</td>
+                                <td>Sep 15, 2026</td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-light"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btn-sm btn-light"><i class="bi bi-pencil"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prescriptions Content -->
+        <div class="p-4 content-section d-none" id="tab-prescriptions">
+            <h2 class="mb-4">E-Prescriptions</h2>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="fw-bold mb-4">Recent Prescriptions</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-primary">Lisinopril 10mg</strong>
+                                    <span class="text-muted small">Patient: John Doe | 1x Daily</span>
+                                </div>
+                                <span class="badge bg-light text-dark border">Issued: Oct 4</span>
+                            </li>
+                            <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-primary">Metformin 500mg</strong>
+                                    <span class="text-muted small">Patient: Jane Smith | 2x Daily w/ Meals</span>
+                                </div>
+                                <span class="badge bg-light text-dark border">Issued: Sep 28</span>
+                            </li>
+                            <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-primary">Amoxicillin 250mg</strong>
+                                    <span class="text-muted small">Patient: Sarah Lee | 3x Daily for 7 days</span>
+                                </div>
+                                <span class="badge bg-light text-dark border">Issued: Sep 20</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 bg-primary text-white">
+                        <h5 class="fw-bold mb-3">Write Prescription</h5>
+                        <p class="small opacity-75 mb-4">Quickly issue a new e-prescription directly to a pharmacy.</p>
+                        <form>
+                            <div class="mb-3">
+                                <select class="form-select form-select-sm mb-2"><option>Select Patient...</option></select>
+                                <input type="text" class="form-control form-control-sm mb-2" placeholder="Medication Name">
+                                <input type="text" class="form-control form-control-sm mb-3" placeholder="Dosage instructions">
+                            </div>
+                            <button type="button" class="btn btn-light w-100 fw-bold">Send to Pharmacy</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Content -->
+        <div class="p-4 content-section d-none" id="tab-messages">
+            <h2 class="mb-4">Messages</h2>
+            <div class="card border-0 shadow-sm overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-4 border-end bg-light">
+                        <div class="p-3 border-bottom">
+                            <input type="text" class="form-control form-control-sm" placeholder="Search messages...">
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action active py-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1 fw-bold">Nurse Bob</h6>
+                                    <small>10 mins</small>
+                                </div>
+                                <p class="mb-1 small">Jane Smith's vitals look stable...</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action py-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1 fw-bold">John Doe</h6>
+                                    <small class="text-muted">Yesterday</small>
+                                </div>
+                                <p class="mb-1 small text-muted">Thank you doctor, the new meds...</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 p-4 d-flex flex-column h-100" style="min-height: 400px;">
+                        <div class="border-bottom pb-3 mb-auto">
+                            <h5 class="mb-0 fw-bold">Nurse Bob</h5>
+                            <small class="text-muted">Regarding: Jane Smith</small>
+                        </div>
+                        <div class="py-4">
+                            <div class="d-flex mb-3">
+                                <div class="bg-light p-3 rounded-3" style="max-width: 75%;">
+                                    Hi Doctor, just finished the home visit for Jane Smith. Her blood pressure is back to normal and the wound is healing well.
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3 justify-content-end">
+                                <div class="bg-primary text-white p-3 rounded-3" style="max-width: 75%;">
+                                    Excellent work Bob. Let's keep monitoring her for another week and then transition to bi-weekly visits.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-auto pt-3 border-top d-flex gap-2">
+                            <input type="text" class="form-control" placeholder="Type a message...">
+                            <button class="btn btn-primary"><i class="bi bi-send"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Content -->
+        <div class="p-4 content-section d-none" id="tab-settings">
+            <h2 class="mb-4">Account Settings</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h5 class="fw-bold mb-4">Profile Information</h5>
+                        <form>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">First Name</label>
+                                    <input type="text" class="form-control" value="Doctor">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">Last Name</label>
+                                    <input type="text" class="form-control" value="Smith">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Email Address</label>
+                                <input type="email" class="form-control" value="doctor@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Specialty</label>
+                                <input type="text" class="form-control" value="Geriatrics & Home Care">
+                            </div>
+                            <button type="button" class="btn btn-primary mt-2">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h5 class="fw-bold mb-4">Notifications</h5>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="notif1" checked>
+                            <label class="form-check-label" for="notif1">Email me when a patient messages me</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="notif2" checked>
+                            <label class="form-check-label" for="notif2">SMS alerts for emergency consults</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="notif3">
+                            <label class="form-check-label" for="notif3">Daily schedule digest</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            if (sidebarToggle && sidebarOverlay) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-sidebar');
+                    sidebarOverlay.classList.toggle('show');
+                });
+
+                sidebarOverlay.addEventListener('click', () => {
+                    sidebar.classList.remove('show-sidebar');
+                    sidebarOverlay.classList.remove('show');
+                });
+            }
+        });
+
+        function showTab(tabId, el) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('d-none'));
+            // Show target
+            document.getElementById('tab-' + tabId).classList.remove('d-none');
+            // Remove active from all nav links
+            document.querySelectorAll('#sidebar-nav .nav-link').forEach(nav => nav.classList.remove('active'));
+            // Set active
+            el.classList.add('active');
+
+            // Close sidebar on mobile
+            if (window.innerWidth < 992) {
+                document.getElementById('sidebar').classList.remove('show-sidebar');
+                document.getElementById('sidebarOverlay').classList.remove('show');
+            }
+        }
+
+        // On load, get the email from localStorage and update the UI elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedEmail = localStorage.getItem('userEmail') || 'user@example.com';
+            
+            // Update all elements that should show the email
+            const emailDisplays = document.querySelectorAll('.user-email-display');
+            emailDisplays.forEach(el => {
+                el.textContent = storedEmail;
+            });
+        });
+    </script>
+</body>
+</html>

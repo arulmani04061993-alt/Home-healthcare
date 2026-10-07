@@ -1,0 +1,138 @@
+/* STACKLY - CAREERS CSS */
+
+.career-hero {
+    background-color: var(--light);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.job-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--transition-normal);
+    height: 100%;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.job-type-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(66, 191, 160, 0.1);
+    color: var(--primary);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.job-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    color: var(--text);
+    font-size: 15px;
+}
+
+.job-meta i {
+    color: var(--primary);
+    margin-right: 5px;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+
+.benefit-icon {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* Team Cards */
+.team-section {
+    background-color: #f4f5f6;
+}
+.team-card {
+    background: #2b3b44;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+}
+.team-card img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s ease;
+}
+.team-card:hover img {
+    transform: scale(1.03);
+}
+.team-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.team-card h4 {
+    letter-spacing: -0.5px;
+}
+.team-card-text {
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+.team-card:hover .team-card-text {
+    transform: translateY(-45px); /* Push up to make room for pill */
+}
+.social-hover-pill {
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 30px;
+    visibility: hidden;
+}
+.team-card:hover .social-hover-pill {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+.social-hover-pill a {
+    color: #4a5568;
+    transition: color 0.2s;
+    font-size: 0.9rem;
+}
+.social-hover-pill a:hover {
+    color: #ff5757;
+}

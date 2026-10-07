@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | STACKLY Home Healthcare</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+    <div id="preloader"><div class="preloader-content d-flex flex-column align-items-center"><img src="assets/images/logo.webp" alt="STACKLY" style="width: 200px; height: auto; margin-bottom: -15px; z-index: 2; position: relative;"><svg class="pulse-svg" viewBox="0 0 400 150"><path class="pulse-line" d="M 0 75 L 150 75 C 155 75 155 40 160 40 C 165 40 165 75 170 75 L 172 75 L 175 100 L 178 50 L 183 140 C 185 140 186 60 190 60 C 193 60 195 80 198 80 C 202 80 204 40 208 40 C 212 40 212 75 215 75 L 400 75"></path></svg></div></div>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header" style="background: linear-gradient(rgba(16, 42, 67, 0.8), rgba(16, 42, 67, 0.8)), url('assets/images/headers/header_contact.webp') center/cover;">
+            <div class="container" data-aos="zoom-in">
+                <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Contact Info & Form -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">Let's Talk About Your Care</h2>
+                </div>
+                
+                <style>
+                    .contact-card-horizontal {
+                        background: #ffffff;
+                        border-radius: 16px;
+                        padding: 25px 30px;
+                        display: flex;
+                        align-items: center;
+                        gap: 25px;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+                        border: 1px solid rgba(0,0,0,0.02);
+                        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                        cursor: pointer;
+                    }
+                    .contact-card-horizontal:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 15px 35px rgba(255, 87, 87, 0.12);
+                        border-color: rgba(255, 87, 87, 0.2);
+                    }
+                    .icon-circle {
+                        width: 55px;
+                        height: 55px;
+                        min-width: 55px;
+                        background-color: #f2f4f8;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.3rem;
+                        color: #111;
+                        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                    }
+                    .contact-card-horizontal:hover .icon-circle {
+                        background-color: #ff5757;
+                        color: #ffffff;
+                        transform: scale(1.1) rotate(5deg);
+                    }
+                    .card-content h5 {
+                        font-weight: 700;
+                        color: #111;
+                        margin-bottom: 5px;
+                        font-size: 1.1rem;
+                        transition: color 0.3s ease;
+                    }
+                    .contact-card-horizontal:hover .card-content h5 {
+                        color: #ff5757;
+                    }
+                    .card-content p {
+                        color: #666;
+                        margin-bottom: 0;
+                        font-size: 0.95rem;
+                        line-height: 1.4;
+                    }
+                    .social-icons-group {
+                        display: flex;
+                        gap: 12px;
+                        margin-top: 5px;
+                    }
+                    .social-circle {
+                        width: 35px;
+                        height: 35px;
+                        background-color: #f2f4f8;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #111;
+                        text-decoration: none;
+                        font-size: 0.95rem;
+                        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+                    }
+                    .social-circle:hover {
+                        background-color: #ff5757;
+                        color: #fff;
+                        transform: translateY(-3px);
+                        box-shadow: 0 5px 15px rgba(255, 87, 87, 0.3);
+                    }
+                </style>
+                
+                <div class="row g-5 align-items-stretch">
+                    <!-- Vertical Contact Cards -->
+                    <div class="col-lg-4 d-flex flex-column gap-3 justify-content-between">
+                        <!-- Email Card -->
+                        <div class="contact-card-horizontal" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon-circle"><i class="bi bi-envelope"></i></div>
+                            <div class="card-content">
+                                <h5>Email Us</h5>
+                                <p>info@thestackly.com</p>
+                            </div>
+                        </div>
+                        <!-- Phone Card -->
+                        <div class="contact-card-horizontal" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon-circle"><i class="bi bi-telephone-fill"></i></div>
+                            <div class="card-content">
+                                <h5>Call Us</h5>
+                                <p>+91 9876543210</p>
+                            </div>
+                        </div>
+                        <!-- Office Card -->
+                        <div class="contact-card-horizontal" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-circle"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div class="card-content">
+                                <h5>Office Location</h5>
+                                <p>Salem<br>Tamil Nadu, 636001</p>
+                            </div>
+                        </div>
+                        <!-- Follow Us Card -->
+                        <div class="contact-card-horizontal" data-aos="fade-up" data-aos-delay="400">
+                            <div class="icon-circle"><i class="bi bi-hash"></i></div>
+                            <div class="card-content">
+                                <h5>Follow Us</h5>
+                                <div class="social-icons-group">
+                                    <a href="#" class="social-circle"><i class="bi bi-linkedin"></i></a>
+                                    <a href="#" class="social-circle"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="social-circle"><i class="bi bi-facebook"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form -->
+                    <div class="col-lg-8" data-aos="fade-up">
+                        <div class="contact-form-container h-100 d-flex flex-column justify-content-center">
+                            <h3 class="fw-bold mb-4 text-center">Request a Consultation</h3>
+                            <form id="contactForm" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">First Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Last Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Email Address</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Phone Number</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label text-muted">Service Needed</label>
+                                        <select class="form-select form-control" required>
+                                            <option value="">Select a service...</option>
+                                            <option>Personal Care</option>
+                                            <option>Senior Care</option>
+                                            <option>Dementia Care</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label text-muted">Message</label>
+                                        <textarea class="form-control" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4 text-center">
+                                        <button type="submit" class="btn btn-primary px-5 py-3">SEND MESSAGE</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map -->
+                <div class="row mt-5">
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                        <div class="map-wrapper shadow-lg" style="height: 450px; border-radius: 16px; overflow: hidden; background-color: #fff; border: 1px solid rgba(0,0,0,0.05);">
+                            <iframe src="https://maps.google.com/maps?q=MMR+Complex,+Periyakollappatty,+Chinna+Thirupathi,+Salem,+Tamil+Nadu+636008&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Helpful Answers FAQ Section -->
+        <section class="section py-5" style="background-color: #f4f5f6; padding-top: 6rem !important; padding-bottom: 6rem !important;">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Left Column: Heading and Contact Card -->
+                    <div class="col-lg-5" data-aos="fade-up">
+                        <span class="text-uppercase fw-bold" style="color: #ff5757; font-size: 0.75rem; letter-spacing: 1.5px;">[ HELPFUL ANSWERS HERE ]</span>
+                        <h2 class="display-5 fw-bold mt-3 mb-5" style="color: #102a43; font-family: 'Times New Roman', Times, serif;">Care information<br><span style="color: #94a3b8; font-family: 'Times New Roman', Times, serif; font-weight: 400;">made easy</span></h2>
+                        
+                        <div class="contact-help-card bg-white rounded-4 p-4 p-md-5 position-relative overflow-hidden shadow-sm" style="border: none;">
+                            <h3 class="fw-bold mb-4" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.8rem; position: relative; z-index: 2;">Need help with senior<br>care today?</h3>
+                            <a href="contact.html" class="btn text-white rounded-pill px-4 py-2 fw-bold position-relative z-2" style="background-color: #ff5757; font-size: 0.9rem;">Contact Us <i class="bi bi-plus ms-1"></i></a>
+                            
+                            <!-- Decorative line graphic -->
+                            <svg class="position-absolute" style="bottom: 0; right: 0; width: 100%; height: auto; z-index: 1;" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M-20 120 C 50 120, 100 180, 180 120 C 220 90, 260 80, 270 110 C 280 140, 240 160, 220 140 C 200 120, 250 80, 320 60" stroke="#f0e6d2" stroke-width="4" stroke-linecap="round" fill="none"/>
+                            </svg>
+
+                            <div class="mt-5 position-relative z-2">
+                                <p class="text-muted mb-1" style="font-size: 0.8rem;">Prefer to email?</p>
+                                <a href="mailto:support@example.com" class="text-decoration-none fw-bold" style="color: #4a5568; font-size: 0.95rem;">support@example.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Accordion -->
+                    <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+                        <div class="accordion custom-faq-accordion" id="helpfulFaqContact">
+                            
+                            <!-- FAQ 1 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq1" aria-expanded="true" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        How much does senior care cost?
+                                    </button>
+                                </h2>
+                                <div id="cfaq1" class="accordion-collapse collapse show" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        The answer depends on the type of care, the location of care and the level of care that is needed. We provide a no obligation care consultation and provide information on many options for paying for home care.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 2 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq2" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        Can I choose my caregiver?
+                                    </button>
+                                </h2>
+                                <div id="cfaq2" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        Yes, we match you with a caregiver based on your needs and preferences, and you always have the final say in who provides your care.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq3" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        How long does it take to begin care?
+                                    </button>
+                                </h2>
+                                <div id="cfaq3" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        Care can typically begin within 24 to 48 hours of your initial consultation, depending on the specific requirements and availability.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ 4 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq4" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        Does Medicare cover in-home care?
+                                    </button>
+                                </h2>
+                                <div id="cfaq4" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        Medicare covers some home health care services when prescribed by a doctor, but generally does not cover non-medical personal care. We can help you navigate payment options.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 5 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq5" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        Do you provide twenty-four hour care?
+                                    </button>
+                                </h2>
+                                <div id="cfaq5" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        Yes, we offer both 24-hour shift care and live-in care options to ensure your loved ones have the support they need at all times.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 6 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq6" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        Can caregivers assist with daily activities?
+                                    </button>
+                                </h2>
+                                <div id="cfaq6" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        Absolutely. Our caregivers are trained to assist with all activities of daily living including bathing, dressing, meal preparation, and light housekeeping.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 7 -->
+                            <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq7" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        Are your services available on weekends?
+                                    </button>
+                                </h2>
+                                <div id="cfaq7" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        Yes, our care services are available 24 hours a day, 7 days a week, including weekends and holidays.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 8 -->
+                            <div class="accordion-item border-0 mb-0 rounded-4 overflow-hidden" style="background-color: #f5ebd9;">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent shadow-none fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#cfaq8" aria-expanded="false" style="color: #102a43; font-family: 'Times New Roman', Times, serif; font-size: 1.15rem; padding: 1.25rem 1.5rem;">
+                                        What services do you provide?
+                                    </button>
+                                </h2>
+                                <div id="cfaq8" class="accordion-collapse collapse" data-bs-parent="#helpfulFaqContact">
+                                    <div class="accordion-body text-muted pt-0 pb-4 px-4" style="font-size: 0.9rem; line-height: 1.6; color: #4a5568 !important;">
+                                        We provide a wide range of services including personal care, dementia care, respite care, post-hospitalization support, and companionship.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .custom-faq-accordion .accordion-button::after {
+                    background-image: none !important;
+                    content: "+";
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 28px;
+                    height: 28px;
+                    background-color: white;
+                    color: #102a43;
+                    border-radius: 50%;
+                    font-size: 1.3rem;
+                    font-weight: 300;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                }
+                .custom-faq-accordion .accordion-button:not(.collapsed)::after {
+                    content: "−";
+                    background-color: #ff5757;
+                    color: white;
+                    transform: rotate(0deg);
+                    font-size: 1.5rem;
+                }
+                .custom-faq-accordion .accordion-button {
+                    transition: background-color 0.3s ease;
+                }
+            </style>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section py-5" style="background-color: #42BFA0; padding-top: 5rem !important; padding-bottom: 5rem !important;">
+            <div class="container text-center" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white mb-3">Not sure what care you may need?</h2>
+                <p class="text-white mb-4 fs-5" style="opacity: 0.9;">Our care advisors are ready to help you find the right solution.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
+                    <a href="contact.html" class="btn" style="background-color: #ff5757; color: white; border-radius: 6px; padding: 14px 28px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Contact Us</a>
+                    <a href="book.html" class="btn" style="background-color: #ff5757; color: white; border-radius: 6px; padding: 14px 28px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Book A Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="footer-placeholder"></div>
+    </main>
+
+    <div id="backToTop"><i class="bi bi-arrow-up"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

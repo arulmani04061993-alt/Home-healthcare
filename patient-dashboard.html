@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | STACKLY Home Healthcare</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #03204c;
+            color: white;
+            padding-top: 1rem;
+            z-index: 1050;
+            transition: transform 0.3s ease;
+        }
+        #main-content {
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
+            width: calc(100% - 250px);
+        }
+        .navbar-custom {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-link.active {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 5px;
+        }
+        .sidebar-email {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            word-break: break-all;
+        }
+        
+        /* Responsive Overrides */
+        @media (max-width: 991.98px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+            #sidebar.show-sidebar {
+                transform: translateX(0);
+            }
+            #main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0,0,0,0.5);
+                z-index: 1040;
+                display: none;
+            }
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="d-flex flex-column">
+        <a href="index.html" class="d-flex align-items-center mb-4 px-4 text-white text-decoration-none">
+            <img src="assets/images/logo.webp" alt="STACKLY Logo" height="35">
+        </a>
+        
+        <div class="px-4 mb-4">
+            <p class="mb-0 fw-bold">PATIENT PORTAL</p>
+            <p class="sidebar-email user-email-display">Loading...</p>
+        </div>
+
+        <ul class="nav nav-pills flex-column mb-auto px-2" id="sidebar-nav">
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white active" onclick="showTab('dashboard', this)">
+                    <i class="bi bi-grid me-2"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('appointments', this)">
+                    <i class="bi bi-calendar-check me-2"></i> My Appointments
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('careplan', this)">
+                    <i class="bi bi-clipboard2-pulse me-2"></i> Care Plan
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('medications', this)">
+                    <i class="bi bi-capsule me-2"></i> Medications
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('records', this)">
+                    <i class="bi bi-file-medical me-2"></i> Medical Records
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('billing', this)">
+                    <i class="bi bi-credit-card me-2"></i> Billing
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+                <a href="#" class="nav-link text-white" onclick="showTab('settings', this)">
+                    <i class="bi bi-gear me-2"></i> Settings
+                </a>
+            </li>
+        </ul>
+        
+        <div class="mt-auto p-3">
+            <a href="index.html" class="btn btn-outline-light w-100">
+                <i class="bi bi-box-arrow-left me-2"></i>Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+            <div class="container-fluid">
+                <button class="btn btn-light d-lg-none me-3 border" id="sidebarToggle">
+                    <i class="bi bi-list fs-5"></i>
+                </button>
+                <span class="navbar-brand mb-0 h1">Overview</span>
+                <div class="d-flex align-items-center ms-auto">
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-4 me-2 text-primary"></i>
+                            <strong class="user-email-display">Loading...</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="dropdownUser">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <!-- Dashboard Content -->
+        <!-- Dashboard Content -->
+        <div class="p-4 content-section" id="tab-dashboard">
+            <h2 class="mb-4">Welcome back, <span class="text-primary">PATIENT</span>!</h2>
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #42BFA0 !important;">
+                        <i class="bi bi-calendar-event fs-1 text-primary mb-2"></i>
+                        <h5 class="text-muted">Next Appointment</h5>
+                        <h4 class="fw-bold">Tomorrow, 10 AM</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #ff5757 !important;">
+                        <i class="bi bi-capsule fs-1 text-danger mb-2"></i>
+                        <h5 class="text-muted">Medications</h5>
+                        <h4 class="fw-bold">2 Active</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #ffc107 !important;">
+                        <i class="bi bi-clipboard2-pulse fs-1 text-warning mb-2"></i>
+                        <h5 class="text-muted">Care Plan</h5>
+                        <h4 class="fw-bold">75% Complete</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card border-0 shadow-sm p-4 h-100 text-center" style="border-bottom: 4px solid #0dcaf0 !important;">
+                        <i class="bi bi-currency-dollar fs-1 text-info mb-2"></i>
+                        <h5 class="text-muted">Balance Due</h5>
+                        <h4 class="fw-bold">$150.00</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="mb-4 fw-bold">Today's Schedule</h5>
+                        <div class="d-flex align-items-center mb-3 border-bottom pb-3">
+                            <div class="bg-light rounded-circle p-3 me-3 text-primary"><i class="bi bi-cup-hot"></i></div>
+                            <div>
+                                <h6 class="mb-1">Morning Medication</h6>
+                                <p class="text-muted mb-0 small">Lisinopril 10mg - Taken at 8:00 AM</p>
+                            </div>
+                            <span class="ms-auto text-success fw-bold"><i class="bi bi-check-circle"></i> Done</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 border-bottom pb-3">
+                            <div class="bg-light rounded-circle p-3 me-3 text-warning"><i class="bi bi-activity"></i></div>
+                            <div>
+                                <h6 class="mb-1">Physical Therapy</h6>
+                                <p class="text-muted mb-0 small">Stretching exercises - 30 minutes</p>
+                            </div>
+                            <span class="ms-auto text-warning fw-bold">Pending</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-light rounded-circle p-3 me-3 text-info"><i class="bi bi-camera-video"></i></div>
+                            <div>
+                                <h6 class="mb-1">Telehealth Check-in</h6>
+                                <p class="text-muted mb-0 small">Nurse Bob - 4:00 PM</p>
+                            </div>
+                            <span class="ms-auto text-muted small">In 4 hours</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="mb-4 fw-bold">Quick Actions</h5>
+                        <button class="btn btn-primary w-100 mb-3 text-start"><i class="bi bi-calendar-plus me-2"></i> Book Appointment</button>
+                        <button class="btn btn-outline-primary w-100 mb-3 text-start"><i class="bi bi-capsule me-2"></i> Request Refill</button>
+                        <button class="btn btn-outline-secondary w-100 mb-3 text-start"><i class="bi bi-envelope me-2"></i> Message Care Team</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments Content -->
+        <div class="p-4 content-section d-none" id="tab-appointments">
+            <h2 class="mb-4">My Appointments</h2>
+            <div class="card border-0 shadow-sm p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Upcoming & Past Visits</h5>
+                    <button class="btn btn-primary"><i class="bi bi-calendar-plus me-1"></i> Book New Visit</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Provider</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tomorrow, 10:00 AM</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Dr+Alice&background=random" class="rounded-circle me-2" width="30">
+                                        <span>Dr. Alice</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-info text-dark"><i class="bi bi-camera-video me-1"></i> Video Consult</span></td>
+                                <td><span class="text-success"><i class="bi bi-circle-fill small me-1"></i> Confirmed</span></td>
+                                <td><button class="btn btn-sm btn-outline-primary">Reschedule</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Oct 12, 2:00 PM</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Nurse+Bob&background=random" class="rounded-circle me-2" width="30">
+                                        <span>Nurse Bob</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-primary"><i class="bi bi-house me-1"></i> Home Visit</span></td>
+                                <td><span class="text-warning"><i class="bi bi-circle-fill small me-1"></i> Scheduled</span></td>
+                                <td><button class="btn btn-sm btn-outline-primary">Reschedule</button></td>
+                            </tr>
+                            <tr class="opacity-75">
+                                <td>Sep 15, 9:00 AM</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://ui-avatars.com/api/?name=Dr+Alice&background=random" class="rounded-circle me-2" width="30">
+                                        <span>Dr. Alice</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-secondary"><i class="bi bi-hospital me-1"></i> Clinic</span></td>
+                                <td><span class="text-muted"><i class="bi bi-check-circle-fill small me-1"></i> Completed</span></td>
+                                <td><button class="btn btn-sm btn-light">View Notes</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Care Plan Content -->
+        <div class="p-4 content-section d-none" id="tab-careplan">
+            <h2 class="mb-4">My Care Plan</h2>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="fw-bold mb-3">Post-Surgery Recovery Plan</h5>
+                        <p class="text-muted mb-4">This care plan is designed to help you regain mobility and monitor for any post-operative complications over a 4-week period.</p>
+                        
+                        <h6 class="fw-bold mb-3">Weekly Progress</h6>
+                        <div class="progress mb-4" style="height: 25px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Week 2 of 4</div>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Today's Tasks</h6>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-check-square-fill text-success me-2"></i> Take morning vitals (Blood Pressure, Temp)</div>
+                                <span class="badge bg-success rounded-pill">Completed</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-square text-muted me-2"></i> Physical therapy - Session 2 (Leg raises)</div>
+                                <span class="badge bg-warning text-dark rounded-pill">Pending</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div><i class="bi bi-square text-muted me-2"></i> Log daily pain level</div>
+                                <span class="badge bg-warning text-dark rounded-pill">Pending</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 bg-light">
+                        <h5 class="fw-bold mb-3">Care Team</h5>
+                        <div class="d-flex align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                            <img src="https://ui-avatars.com/api/?name=Dr+Alice&background=random" class="rounded-circle me-3" width="40">
+                            <div>
+                                <h6 class="mb-0">Dr. Alice</h6>
+                                <small class="text-muted">Primary Physician</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3 bg-white p-3 rounded shadow-sm">
+                            <img src="https://ui-avatars.com/api/?name=Nurse+Bob&background=random" class="rounded-circle me-3" width="40">
+                            <div>
+                                <h6 class="mb-0">Nurse Bob</h6>
+                                <small class="text-muted">Visiting Nurse</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary w-100 mt-2"><i class="bi bi-chat-dots me-2"></i> Message Team</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medications Content -->
+        <div class="p-4 content-section d-none" id="tab-medications">
+            <h2 class="mb-4">Medications</h2>
+            <div class="card border-0 shadow-sm p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Active Prescriptions</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Medication</th>
+                                <th>Dosage</th>
+                                <th>Instructions</th>
+                                <th>Refills Left</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary text-white rounded p-2 me-3"><i class="bi bi-capsule"></i></div>
+                                        <strong>Lisinopril</strong>
+                                    </div>
+                                </td>
+                                <td>10mg</td>
+                                <td>Take 1 tablet daily in the morning</td>
+                                <td><span class="badge bg-success">2 Refills</span></td>
+                                <td><button class="btn btn-sm btn-outline-primary">Request Refill</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-info text-white rounded p-2 me-3"><i class="bi bi-capsule-pill"></i></div>
+                                        <strong>Metformin</strong>
+                                    </div>
+                                </td>
+                                <td>500mg</td>
+                                <td>Take 1 tablet twice daily with meals</td>
+                                <td><span class="badge bg-danger">0 Refills</span></td>
+                                <td><button class="btn btn-sm btn-primary">Renew Prescription</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Records Content -->
+        <div class="p-4 content-section d-none" id="tab-records">
+            <h2 class="mb-4">Medical Records</h2>
+            <div class="card border-0 shadow-sm p-4">
+                <h5 class="fw-bold mb-4">Recent Lab Results & Documents</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-file-earmark-pdf fs-3 text-danger me-3"></i>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Comprehensive Metabolic Panel</h6>
+                                <small class="text-muted">Oct 1, 2026 • Ordered by Dr. Alice</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-light"><i class="bi bi-download"></i></button>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-file-earmark-pdf fs-3 text-danger me-3"></i>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Post-Op Discharge Summary</h6>
+                                <small class="text-muted">Sep 25, 2026 • General Hospital</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-light"><i class="bi bi-download"></i></button>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-file-earmark-image fs-3 text-primary me-3"></i>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Chest X-Ray Results</h6>
+                                <small class="text-muted">Sep 15, 2026 • Radiology Dept</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-light"><i class="bi bi-download"></i></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Billing Content -->
+        <div class="p-4 content-section d-none" id="tab-billing">
+            <h2 class="mb-4">Billing & Invoices</h2>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <h5 class="fw-bold mb-4">Invoice History</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Invoice #</th>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>INV-0091</strong></td>
+                                        <td>Oct 01, 2026</td>
+                                        <td>Home Nursing Visit (Sep)</td>
+                                        <td>$150.00</td>
+                                        <td><span class="badge bg-warning text-dark">Unpaid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>INV-0084</strong></td>
+                                        <td>Sep 01, 2026</td>
+                                        <td>Physical Therapy Session</td>
+                                        <td>$100.00</td>
+                                        <td><span class="badge bg-success">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>INV-0072</strong></td>
+                                        <td>Aug 15, 2026</td>
+                                        <td>Initial Consultation</td>
+                                        <td>$250.00</td>
+                                        <td><span class="badge bg-success">Paid</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 h-100 bg-light">
+                        <h5 class="fw-bold mb-4">Make a Payment</h5>
+                        <div class="bg-white p-3 rounded border mb-4 text-center">
+                            <p class="text-muted mb-1">Total Outstanding Balance</p>
+                            <h2 class="fw-bold text-danger mb-0">$150.00</h2>
+                        </div>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Card Details</label>
+                                <input type="text" class="form-control mb-2" placeholder="Card Number">
+                                <div class="row g-2">
+                                    <div class="col-6"><input type="text" class="form-control" placeholder="MM/YY"></div>
+                                    <div class="col-6"><input type="text" class="form-control" placeholder="CVC"></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary w-100 fw-bold">Pay $150.00</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Content -->
+        <div class="p-4 content-section d-none" id="tab-settings">
+            <h2 class="mb-4">Account Settings</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h5 class="fw-bold mb-4">Profile Information</h5>
+                        <form>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">First Name</label>
+                                    <input type="text" class="form-control" value="Patient">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-muted">Last Name</label>
+                                    <input type="text" class="form-control" value="User">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Email Address</label>
+                                <input type="email" class="form-control user-email-display" value="patient@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small text-muted">Phone Number</label>
+                                <input type="text" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                            <button type="button" class="btn btn-primary mt-2">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h5 class="fw-bold mb-4">Communication Preferences</h5>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="pref1" checked>
+                            <label class="form-check-label" for="pref1">Appointment Reminders (SMS)</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="pref2" checked>
+                            <label class="form-check-label" for="pref2">Medication Refill Alerts (Email)</label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="pref3">
+                            <label class="form-check-label" for="pref3">Marketing & Newsletter</label>
+                        </div>
+                        <hr>
+                        <h5 class="fw-bold mb-3 mt-4">Security</h5>
+                        <button type="button" class="btn btn-outline-danger w-100">Change Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            if (sidebarToggle && sidebarOverlay) {
+                sidebarToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('show-sidebar');
+                    sidebarOverlay.classList.toggle('show');
+                });
+
+                sidebarOverlay.addEventListener('click', () => {
+                    sidebar.classList.remove('show-sidebar');
+                    sidebarOverlay.classList.remove('show');
+                });
+            }
+        });
+
+        function showTab(tabId, el) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('d-none'));
+            // Show target
+            document.getElementById('tab-' + tabId).classList.remove('d-none');
+            // Remove active from all nav links
+            document.querySelectorAll('#sidebar-nav .nav-link').forEach(nav => nav.classList.remove('active'));
+            // Set active
+            el.classList.add('active');
+
+            // Close sidebar on mobile
+            if (window.innerWidth < 992) {
+                document.getElementById('sidebar').classList.remove('show-sidebar');
+                document.getElementById('sidebarOverlay').classList.remove('show');
+            }
+        }
+
+        // On load, get the email from localStorage and update the UI elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedEmail = localStorage.getItem('userEmail') || 'user@example.com';
+            
+            // Update all elements that should show the email
+            const emailDisplays = document.querySelectorAll('.user-email-display');
+            emailDisplays.forEach(el => {
+                el.textContent = storedEmail;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+/* STACKLY - ABOUT CSS */
+
+.page-header {
+    padding: 120px 0 80px;
+    background: linear-gradient(rgba(16, 42, 67, 0.8), rgba(16, 42, 67, 0.8)), url('../assets/images/global/img_1576765608535-5f04d1e3f289.webp') center/cover;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header h1, 
+.page-header h2, 
+.page-header h3, 
+.page-header h4, 
+.page-header h5, 
+.page-header h6 {
+    color: var(--white) !important;
+}
+
+.breadcrumb {
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mission-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    border-top: 4px solid var(--primary);
+    transition: all var(--transition-normal);
+}
+
+.mission-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.mission-icon {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* Accordion */
+.custom-accordion .accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.custom-accordion .accordion-button {
+    font-weight: 600;
+    font-family: var(--font-primary);
+    padding: 20px;
+    color: var(--heading);
+    background-color: var(--white);
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    color: var(--white);
+    background-color: var(--primary);
+    box-shadow: none;
+}
+
+.custom-accordion .accordion-button:focus {
+    box-shadow: none;
+}
+
+.custom-accordion .accordion-body {
+    padding: 20px;
+    background-color: var(--white);
+    color: var(--text);
+}
+
+/* Support Section */
+.support-icon-box {
+    width: 120px;
+    height: 120px;
+    background: rgba(66, 191, 160, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    position: relative;
+}
+
+.support-icon-inner {
+    width: 90px;
+    height: 90px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 36px;
+    transition: all var(--transition-normal);
+}
+
+.support-card:hover .support-icon-inner {
+    transform: scale(1.1);
+}
+
+/* History Timeline */
+.history-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border);
+}
+
+.history-item {
+    position: relative;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.history-item:last-child {
+    margin-bottom: 0;
+}
+
+.history-check {
+    position: absolute;
+    left: -32px;
+    top: 5px;
+    background: var(--white);
+    color: var(--primary);
+    font-size: 20px;
+    z-index: 1;
+}
+
+.history-year {
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 20px;
+    min-width: 160px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.history-item.active .history-year {
+    transform: scale(1.05);
+}
+
+/* Benefits Section */
+.benefits-section {
+    background-color: var(--primary);
+    padding: 80px 0;
+    color: var(--white);
+}
+
+.benefit-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    transition: transform var(--transition-normal);
+}
+
+.benefit-box:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-box-icon {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.benefit-box h3 {
+    color: var(--heading);
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.benefit-box p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+/* Get Started Section */
+.get-started-line {
+    position: absolute;
+    top: 60px;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    border-top: 2px dashed var(--primary);
+    z-index: 0;
+}
+
+@media (max-width: 991px) {
+    .get-started-line {
+        display: none;
+    }
+    .history-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .history-year {
+        align-self: flex-start;
+    }
+}

@@ -1,0 +1,194 @@
+/* STACKLY - NAVBAR STYLES */
+
+.navbar {
+    padding: 20px 0;
+    transition: all var(--transition-normal);
+    z-index: 1030;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+}
+
+.navbar.scrolled {
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar.mobile-menu-open {
+    background: var(--white, #fff) !important;
+}
+
+.no-scroll {
+    overflow: hidden !important;
+    height: 100vh;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 24px;
+    color: #ffffff !important;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--transition-normal);
+}
+
+.navbar.scrolled .navbar-brand {
+    color: green !important;
+}
+
+.brand-icon {
+    color: var(--primary);
+    font-size: 28px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 16px !important;
+    transition: color var(--transition-fast);
+}
+
+.navbar.scrolled .nav-link {
+    color: green !important;
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+.nav-link.active {
+    background-color: #e5e7eb !important; /* light gray */
+    color: #1e3a8a !important; /* dark blue */
+    border-radius: 30px; /* pill shape */
+    padding: 8px 20px !important;
+    box-shadow: none;
+}
+
+.navbar.scrolled .nav-link.active,
+.navbar-collapse .nav-link.active {
+    color: #1e3a8a !important;
+}
+
+.nav-btn-login {
+    color: #ffffff !important;
+    font-weight: 600;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+.navbar.scrolled .nav-btn-login {
+    color: green !important;
+}
+
+.nav-btn-login:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--white, #fff);
+        padding: 30px 20px;
+        position: fixed;
+        top: 84px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .navbar.scrolled .navbar-collapse {
+        top: 74px;
+    }
+
+    .navbar-nav {
+        align-items: center;
+    }
+
+    .navbar-nav .dropdown-menu {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.03);
+        border: none;
+        margin-top: 10px;
+    }
+
+    .nav-actions {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-btn-login {
+        margin-right: 0;
+    }
+
+    /* Force green color in mobile menu because background is white */
+    .navbar-collapse .nav-link,
+    .navbar-collapse .nav-btn-login {
+        color: green !important;
+    }
+}
+
+/* Premium Animated Hamburger Menu */
+.premium-toggler {
+    padding: 8px;
+    background: rgba(var(--primary-rgb), 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.premium-toggler:focus,
+.premium-toggler:hover {
+    background: rgba(0, 150, 136, 0.1);
+    outline: none;
+}
+
+.hamburger-icon {
+    width: 28px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 3px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+}
+
+/* Middle line slightly shorter for style */
+.hamburger-icon span:nth-child(2) {
+    width: 80%;
+    margin-left: auto;
+}
+
+.premium-toggler[aria-expanded='true'] .hamburger-icon span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.premium-toggler[aria-expanded='true'] .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.premium-toggler[aria-expanded='true'] .hamburger-icon span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}

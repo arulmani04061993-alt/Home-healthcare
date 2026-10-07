@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Home Care | STACKLY Home Healthcare</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/about.css">
+    
+    <style>
+        .service-details-img {
+            border-radius: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .sidebar-menu {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .sidebar-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-menu li {
+            margin-bottom: 10px;
+        }
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 20px;
+            background: var(--white);
+            color: var(--text);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+        .contact-widget {
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+        .check-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .check-list i {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader"><div class="preloader-content d-flex flex-column align-items-center"><img src="assets/images/logo.webp" alt="STACKLY" style="width: 200px; height: auto; margin-bottom: -15px; z-index: 2; position: relative;"><svg class="pulse-svg" viewBox="0 0 400 150"><path class="pulse-line" d="M 0 75 L 150 75 C 155 75 155 40 160 40 C 165 40 165 75 170 75 L 172 75 L 175 100 L 178 50 L 183 140 C 185 140 186 60 190 60 C 193 60 195 80 198 80 C 202 80 204 40 208 40 C 212 40 212 75 215 75 L 400 75"></path></svg></div></div>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header" style="background: linear-gradient(rgba(16, 42, 67, 0.8), rgba(16, 42, 67, 0.8)), url('assets/images/headers/header_services.webp') center/cover;">
+            <div class="container" data-aos="zoom-in">
+                <h1 class="display-4 fw-bold mb-3">Daily Home Care</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Daily Home Care</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- 5-STAR CARE Section -->
+        <section class="section position-relative py-0 mt-5 mb-5" style="overflow: hidden;">
+            <div class="container-fluid p-0 position-relative z-1">
+                <div class="row g-0 align-items-center">
+                    <!-- Left Images Column -->
+                    <div class="col-lg-6 position-relative py-5" style="background-color: white;">
+                        <div class="position-relative mx-auto mt-4 mb-4 image-overlap-swap" style="max-width: 500px;">
+                            <!-- Top Left Image -->
+                            <img src="assets/images/services/service_details_1.webp" class="img-fluid shadow-sm" alt="Senior Care Therapy" style="width: 65%; margin-right: 35%; display: block;">
+                            <!-- Bottom Right Image -->
+                            <img src="assets/images/services/service_details_2.webp" class="img-fluid shadow-lg" alt="Senior Care Wheelchair" style="width: 70%; margin-left: 30%; margin-top: -30%; position: relative; z-index: 2; border: 15px solid white;">
+                        </div>
+                    </div>
+                    
+                    <!-- Right Text Column -->
+                    <div class="col-lg-6 position-relative py-5 pe-lg-5" style="background-color: #cbf1f5;">
+                        <!-- Extend background right for ultra-wide screens -->
+                        <div style="position: absolute; top: 0; bottom: 0; right: -50vw; left: 0; background-color: #cbf1f5; z-index: -1;"></div>
+                        
+                        <div class="ps-lg-5 py-lg-5" style="max-width: 580px;">
+                            <span class="fw-bold text-uppercase mb-3 d-block" style="color: #ff5757; letter-spacing: 2px; font-size: 0.85rem;">5-STAR CARE</span>
+                            <h2 class="display-5 fw-bold mb-4" style="color: #03204c; font-family: 'Times New Roman', Times, serif;">Senior Care</h2>
+                            <p class="text-dark mb-4 fs-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            </p>
+                            <p class="text-dark mb-4 fs-6">
+                                Proin eleifend in mi eu efficitur. Sed interdum lectus at consequat interdum. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            </p>
+                            <p class="text-dark mb-4 fs-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <a href="contact.html" class="btn rounded-pill px-4 py-3 fw-bold mt-2 d-inline-flex align-items-center justify-content-center" style="background-color: #ff5757; color: white; border: none; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">
+                                Contact Us <i class="bi bi-chevron-right ms-2 fs-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <section class="section">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Main Area -->
+                    <div class="col-lg-8" data-aos="fade-right">
+                        <img src="assets/images/global/img_1576765608535-5f04d1e3f289.webp" alt="Daily Home Care" class="service-details-img shadow">
+                        
+                        <h2 class="fw-bold mb-4">Overview</h2>
+                        <p class="fs-5 mb-4">Our Daily Home Care service provides consistent, reliable assistance for individuals who need ongoing support with their day-to-day activities. We ensure that our clients can maintain their independence and dignity while living safely at home.</p>
+                        
+                        <p class="mb-5">Whether it's help with morning routines, meal preparation, medication reminders, or simply having a companion throughout the day, our caregivers are trained to integrate seamlessly into your lifestyle.</p>
+
+                        <div class="row mb-5 g-4">
+                            <div class="col-md-6">
+                                <h3 class="fw-bold mb-3">Who It Is For</h3>
+                                <ul class="list-unstyled check-list">
+                                    <li><i class="bi bi-check-circle-fill"></i> Seniors living alone</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Individuals recovering from illness</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Those with chronic conditions</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> People needing mobility support</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="fw-bold mb-3">What We Provide</h3>
+                                <ul class="list-unstyled check-list">
+                                    <li><i class="bi bi-check-circle-fill"></i> Bathing & dressing assistance</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Meal planning & preparation</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Light housekeeping</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> Medication management</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-light p-4 rounded-4 border-start border-4 border-primary mb-5">
+                            <h4 class="fw-bold mb-3">Our Care Approach</h4>
+                            <p class="mb-0">We begin with a comprehensive in-home assessment to understand your specific needs, routines, and preferences. Based on this, we create a customized care plan and match you with a caregiver whose skills and personality best fit your situation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar -->
+                    <div class="col-lg-4" data-aos="fade-left">
+                        <div class="sidebar-menu shadow-sm">
+                            <h4 class="fw-bold mb-4">Care Services</h4>
+                            <ul>
+                                <li><a href="services.html">All Services</a></li>
+                                <li><a href="#">Personal Care</a></li>
+                                <li><a href="#">Hourly Home Care</a></li>
+                                <li><a href="#" class="active">Daily Home Care</a></li>
+                                <li><a href="#">Hospital-to-Home</a></li>
+                                <li><a href="#">Respite Care</a></li>
+                                <li><a href="#">Specialized Care</a></li>
+                                <li><a href="#">Dementia Care</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-widget shadow-sm">
+                            <i class="bi bi-headset display-4 mb-3 d-block text-white"></i>
+                            <h4 class="fw-bold mb-3">Looking for advice?</h4>
+                            <p class="mb-4 text-white-50">Our care advisors are available 24/7 to answer your questions.</p>
+                            <a href="contact.html" class="btn btn-white w-100 fw-bold">CONTACT US</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section py-5 bg-white mb-5">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <!-- Left: FAQ Accordion -->
+                    <div class="col-lg-6 pe-lg-5">
+                        <div class="accordion custom-accordion" id="serviceDetailsFaq">
+                            <!-- FAQ Item 1 -->
+                            <div class="accordion-item border-0 border-bottom border-light rounded-0 py-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button bg-white px-0 text-navy fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#detailFaq1" aria-expanded="true" style="font-family: 'Times New Roman', Times, serif; font-size: 1.3rem; color: #03204c; box-shadow: none;">
+                                        How Does Home Care Work?
+                                    </button>
+                                </h2>
+                                <div id="detailFaq1" class="accordion-collapse collapse show" data-bs-parent="#serviceDetailsFaq">
+                                    <div class="accordion-body px-0 text-muted fs-6">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet. Nullam erat ipsum, mattis nec mollis ac, accumsan a enim. Nunc at euismod arcu.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ Item 2 -->
+                            <div class="accordion-item border-0 border-bottom border-light rounded-0 py-2 mt-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-white px-0 text-navy fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#detailFaq2" aria-expanded="false" style="font-family: 'Times New Roman', Times, serif; font-size: 1.3rem; color: #03204c; box-shadow: none;">
+                                        How Can I Get Home Care Services
+                                    </button>
+                                </h2>
+                                <div id="detailFaq2" class="accordion-collapse collapse" data-bs-parent="#serviceDetailsFaq">
+                                    <div class="accordion-body px-0 text-muted fs-6">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet. Nullam erat ipsum, mattis nec mollis ac, accumsan a enim.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- FAQ Item 3 -->
+                            <div class="accordion-item border-0 border-bottom border-light rounded-0 py-2 mt-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-white px-0 text-navy fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#detailFaq3" aria-expanded="false" style="font-family: 'Times New Roman', Times, serif; font-size: 1.3rem; color: #03204c; box-shadow: none;">
+                                        Who Pays For Home Care?
+                                    </button>
+                                </h2>
+                                <div id="detailFaq3" class="accordion-collapse collapse" data-bs-parent="#serviceDetailsFaq">
+                                    <div class="accordion-body px-0 text-muted fs-6">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet. Nullam erat ipsum.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            .custom-accordion .accordion-button::after {
+                                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2303204c'%3e%3cpath fill-rule='evenodd' d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'/%3e%3c/svg%3e");
+                            }
+                            .custom-accordion .accordion-button:not(.collapsed)::after {
+                                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2303204c'%3e%3cpath fill-rule='evenodd' d='M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z'/%3e%3c/svg%3e");
+                                transform: rotate(0deg);
+                            }
+                        </style>
+                    </div>
+                    
+                    <!-- Right: Images -->
+                    <div class="col-lg-6 position-relative text-center">
+                        <div class="position-relative mx-auto mt-4 mb-4 image-overlap-swap" style="max-width: 500px;">
+                            <!-- Bottom Back Image -->
+                            <img src="assets/images/services/service_details_faq_2.webp" class="img-fluid shadow-sm" alt="Nursing Services" style="width: 55%; position: absolute; right: 0; top: 10%; z-index: 1;">
+                            <!-- Top Front Image -->
+                            <img src="assets/images/services/service_details_faq_1.webp" class="img-fluid shadow-lg" alt="Physical Therapy" style="width: 65%; position: relative; z-index: 2; border: 10px solid white; float: left;">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="section py-5" style="background-color: #42BFA0; padding-top: 5rem !important; padding-bottom: 5rem !important;">
+            <div class="container text-center" data-aos="fade-up">
+                <h2 class="display-5 fw-bold text-white mb-3">Not sure what care you may need?</h2>
+                <p class="text-white mb-4 fs-5" style="opacity: 0.9;">Our care advisors are ready to help you find the right solution.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
+                    <a href="contact.html" class="btn" style="background-color: #ff5757; color: white; border-radius: 6px; padding: 14px 28px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Contact Us</a>
+                    <a href="book.html" class="btn" style="background-color: #ff5757; color: white; border-radius: 6px; padding: 14px 28px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Book A Consultation</a>
+                </div>
+            </div>
+        </section>
+        
+        <div id="footer-placeholder"></div>
+    </main>
+
+    <div id="backToTop"><i class="bi bi-arrow-up"></i></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
