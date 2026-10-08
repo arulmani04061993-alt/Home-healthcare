@@ -192,11 +192,9 @@ window.handleNewsletterSubmit = function(e) {
     }
     if (btn) {
         btn.disabled = true;
-        btn.innerHTML = 'Subscribing...';
-    }
+        }
     
     // Wait 2 seconds so the user sees "Thank You For Subscription", then redirect
-    setTimeout(() => {
-        window.location.href = '404.html';
-    }, 2000);
+    setTimeout(() => { window.location.href = '404.html'; }, 1500);
 };
+
