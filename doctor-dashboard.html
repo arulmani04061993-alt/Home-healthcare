@@ -10,6 +10,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            overflow-x: hidden;
         }
         #sidebar {
             width: 250px;
@@ -43,6 +44,8 @@
         }
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 100%;
+            overflow-x: hidden;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -142,7 +145,7 @@
                 <button class="btn btn-light d-lg-none me-3 border" id="sidebarToggle">
                     <i class="bi bi-list fs-5"></i>
                 </button>
-                <span class="navbar-brand mb-0 h1">Overview</span>
+                <span class="navbar-brand mb-0 h1 d-none d-md-block">Overview</span>
                 <div class="d-flex align-items-center ms-auto">
                     <div class="d-flex align-items-center text-dark">
                         <i class="bi bi-person-circle fs-4 me-2 text-primary"></i>
