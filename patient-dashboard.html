@@ -753,12 +753,14 @@
                 sidebarToggle.addEventListener('click', () => {
                     sidebar.classList.toggle('show-sidebar');
                     sidebarOverlay.classList.toggle('show');
+                    document.documentElement.classList.toggle('overflow-hidden');
                     document.body.classList.toggle('overflow-hidden');
                 });
 
                 sidebarOverlay.addEventListener('click', () => {
                     sidebar.classList.remove('show-sidebar');
                     sidebarOverlay.classList.remove('show');
+                    document.documentElement.classList.remove('overflow-hidden');
                     document.body.classList.remove('overflow-hidden');
                 });
             }
@@ -840,4 +842,5 @@
     </script>
 </body>
 </html>
+
 
